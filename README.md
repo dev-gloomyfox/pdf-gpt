@@ -13,6 +13,10 @@ poetry install
 ## usage
 See the file `use_pdf_gpt.ipynb`
 
+Example screenshot using the `./documents/article.pdf` file
+![USAGE EXAMPLE](./misc/screenshot.png)
+
+
 ## todo
 - Tuning answer performance for long-form PDFs(+ Especially Korean text): Current methods don't produce good answer 
 - Add a question method to remember previous conversations
