@@ -8,8 +8,10 @@ packages = [{include = "pdf_gpt"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+llama-index = "^0.5.9"
 
 [tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
 mypy = "^0.991"
 pylint = "^2.15.8"
 black = "^22.12.0"
@@ -46,7 +48,8 @@ max-line-length = 88
 
 [tool.pylint.messages_control]
 disable = [
-    "missing-docstring"
+    "missing-docstring",
+    "line-too-long"
 ]
 
 
