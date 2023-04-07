@@ -1,0 +1,43 @@
+repos:
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.1.2
+    hooks:
+      - id: pycln
+        args:
+          - --config=pyproject.toml
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        name: isort (python)
+        args:
+          - --settings-path=pyproject.toml
+  - repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+        language_version: python3.10
+        args:
+          - --config=pyproject.toml
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        types:
+          - python
+        language: python
+        args:
+          - --rcfile=pyproject.toml
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: mypy
+        types:
+          - python
+        language: python
+        require_serial: true
+        verbose: true
+        args:
+          - --config-file=pyproject.toml

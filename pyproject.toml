@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "pdf-gpt"
+version = "0.1.0"
+description = ""
+authors = ["dev.gloomyfox <dev.gloomyfox@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pdf_gpt"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.991"
+pylint = "^2.15.8"
+black = "^22.12.0"
+pycln = "^2.1.2"
+pre-commit = "^2.20.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+filterwarnings = "error"
+addopts = """
+--strict-markers
+--cov=pdf_gpt
+--cov-report=html
+--no-cov-on-fail
+--cov-fail-under=100
+"""
+
+[tool.mypy]
+strict_optional = true
+
+[tool.isort]
+profile = "black"
+skip = [".venv"]
+
+[tool.black]
+exclude = ".venv"
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.messages_control]
+disable = [
+    "missing-docstring"
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
